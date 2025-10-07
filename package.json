@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://ann728.github.io/react-zustand-hanson/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
