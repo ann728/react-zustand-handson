@@ -5,10 +5,10 @@ on:
     branches:
       - main # mainブランチへのプッシュで実行
 
-  # 手動でワークフローを実行できるようにする (オプション)
+
   workflow_dispatch:
 
-# 各ジョブにパーミッションを設定（GitHub Pagesデプロイに必要）
+
 permissions:
   contents: read
   pages: write
@@ -24,8 +24,8 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # お使いのNode.jsのバージョンに合わせてください (例: 18, 20)
-          cache: 'npm' # npmのキャッシュを有効にして高速化
+          node-version: 20
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
@@ -40,14 +40,14 @@ jobs:
       - name: Upload production-ready assets
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist # Viteは通常 'dist' ディレクトリにビルドします
+          path: ./dist
 
   deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build # buildジョブが成功したら実行
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
